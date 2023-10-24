@@ -17,6 +17,8 @@ public class Task implements Serializable {
 	private Float price;
 	private String link;
 	private String key;
+	private Status status;
+	private Integer rate;
 
 
 	public static long getSerialVersionUID() {
@@ -79,8 +81,20 @@ public class Task implements Serializable {
 		this.key = key;
 	}
 
+	public Status getStatus() {
+		return status;
+	}
 
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
+	public Integer getRate() {
+		return rate;
+	}
 
+	public void setRate(Integer rate) {
+		this.rate = rate;
+	}
 }
 
