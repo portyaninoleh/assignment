@@ -39,8 +39,8 @@ public class TaskController {
 	 * @param type type of the task
 	 * @return list uncompleted tasks for the user
 	 */
-	@GetMapping("/uncompleted-tasks/{user}")
-	public ResponseEntity<List<Task>> getUncomplitedTasks(@PathVariable ("user") String user, @RequestParam(name = "type",required = false) String type){
+	@GetMapping("/uncompleted-tasks")
+	public ResponseEntity<List<Task>> getUncomplitedTasks(@RequestParam(name = "type",required = false) String type){
 		List<Task> tasksByType = taskService.getNotCompletedTasksByType(type);
 		return ResponseEntity.ok(tasksByType);
 	}

@@ -18,7 +18,7 @@ public class Task implements Serializable {
 	private String link;
 	private String key;
 	private Status status;
-	private Integer rate;
+	private int rate;
 
 
 	public static long getSerialVersionUID() {
@@ -89,11 +89,11 @@ public class Task implements Serializable {
 		this.status = status;
 	}
 
-	public Integer getRate() {
+	public int getRate() {
 		return rate;
 	}
 
-	public void setRate(Integer rate) {
+	public void setRate(int rate) {
 		this.rate = rate;
 	}
 }

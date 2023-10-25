@@ -1,6 +1,8 @@
 package com.sysaid.assignment.repository;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -29,7 +31,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 	 * be discussed because we are simulating some data store and thus I think
 	 * it is acceptable to place it here.
 	 */
-	private final static Map<String, List<Task>> TASKS = Map.of();
+	private final static Map<String, List<Task>> TASKS = new HashMap<>();
     private final String RANDOM_TASK_PATTERN = "%s/activity";
     private final String TASK_BY_TYPE_PATTERN = "%s/activity?type=%s";
     
@@ -105,7 +107,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 	 */
 	private void initTasks(String userEmail) {
 		if (TASKS.get(userEmail) == null) {
-			TASKS.put(userEmail, List.of());
+			TASKS.put(userEmail, new ArrayList<Task>());
 		}
 	}
 
@@ -144,7 +146,7 @@ public class TaskRepositoryImpl implements TaskRepository {
 			return List.of();
 		}
 		return TASKS.get(userEmail).stream()
-				.filter(task -> task.getRate().equals(distinctList.get(rateHighness).getRate()))
+				.filter(task -> task.getRate() == distinctList.get(rateHighness).getRate())
 				.collect(Collectors.toUnmodifiableList());
 	}
 	
